@@ -15,9 +15,10 @@ function firstNonRepeatedChar(str)
     {
         return null;
     }
+    const valueArr = Object.values(count);
     for (let letter in count)
     {
-        if (count[letter] == 1)
+        if (count[letter] == Math.min(...valueArr))
         {
             return letter;
         }
