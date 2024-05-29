@@ -10,15 +10,14 @@ function firstNonRepeatedChar(str)
     {
         count[c] = count[c] ? count[c] + 1 : 1;
     }
-    console.log(count);
-    if (Object.keys(count).length == 1)
+    const valueArr = Object.values(count);
+    if (Object.keys(count).length == 1 || Math.min(...valueArr) == Math.max(...valueArr))
     {
         return null;
     }
-    const valueArr = Object.values(count);
     for (let letter in count)
     {
-        if (count[letter] == Math.min(...valueArr))
+        if (count[letter] == 1)
         {
             return letter;
         }
