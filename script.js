@@ -1,5 +1,27 @@
-function firstNonRepeatedChar(str) {
- // Write your code here
+function firstNonRepeatedChar(str)
+{
+    // Write your code here
+    if (str == '')
+    {
+        return null;
+    }
+    const count = {};
+    for (let c of str)
+    {
+        count[c] = count[c] ? count[c] + 1 : 1;
+    }
+    console.log(count);
+    if (Object.keys(count).length == 1)
+    {
+        return null;
+    }
+    for (let letter in count)
+    {
+        if (count[letter] == 1)
+        {
+            return letter;
+        }
+    }
 }
 const input = prompt("Enter a string");
-alert(firstNonRepeatedChar(input)); 
+alert(firstNonRepeatedChar(input));
